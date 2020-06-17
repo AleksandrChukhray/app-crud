@@ -41,10 +41,6 @@ class App extends React.Component {
 
     columns = [
         {
-            type: 'index',
-            width: 180
-        },
-        {
             label: "username",
             prop: "username",
             render: function (data) {
@@ -89,7 +85,7 @@ class App extends React.Component {
         this.props.searchUsers(value);
     }
 
-    onAddUserConfirm(callback) {
+    onAddUserConfirm() {
         const {
             form: {
                 addUser: {
@@ -104,7 +100,7 @@ class App extends React.Component {
             address: values.address
         }
 
-        this.props.addUsers(data)
+        return this.props.addUsers(data)
             .then(() => this.props.getUsers());
     }
 
